@@ -41,10 +41,10 @@ int main(G4int argc, char** argv)
     G4VisManager *visManager = new G4VisExecutive();
     visManager -> Initialize();
 
-    UIManager->ApplyCommand("/vis/open OGL");
-    UIManager->ApplyCommand("/vis/viewer/set/viewpointVector 1 1 1");
-    UIManager->ApplyCommand("/vis/ogl/set/displayListLimit 5000");
-    UIManager->ApplyCommand("/vis/drawVolume");
+    UIManager->ApplyCommand("/vis/open OGL"); // Abre la imagen del detector
+    UIManager->ApplyCommand("/vis/viewer/set/viewpointVector 1 1 1"); // punto de observacion inicial
+    UIManager->ApplyCommand("/vis/ogl/set/displayListLimit 1000");
+    UIManager->ApplyCommand("/vis/drawVolume"); // Dibuja el volumen del detector
 
     // Inicia la sesion
     ui -> SessionStart();
