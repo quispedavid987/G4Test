@@ -21,6 +21,12 @@
 // Incluimos la accion
 #include "action.hh"
 
+// Incluimos algunas librerias de goddess para prueba
+#include "GODDeSS_Messenger.hh"
+#include "ScintillatorTileConstructor.hh"
+#include "G4ScintillatorTile.hh"
+
+
 // Iniciando funcion main
 int main(G4int argc, char** argv)
 {
