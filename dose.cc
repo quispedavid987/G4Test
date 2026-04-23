@@ -56,14 +56,18 @@ int main(G4int argc, char** argv)
     UIManager->ApplyCommand("/vis/viewer/set/viewpointVector 1 0.7 0.7"); // punto de observacion inicial
     UIManager->ApplyCommand("/vis/ogl/set/displayListLimit 50000");
     UIManager->ApplyCommand("/vis/drawVolume"); // Dibuja el volumen del detector
+    UIManager->ApplyCommand("/vis/scene/add/axes 40 -40 -40 10 cm"); // Dibujando los ejes
 
     UIManager->ApplyCommand("/vis/viewer/set/autorefresh true"); // ver la trayectoria
     UIManager->ApplyCommand("/vis/scene/add/trajectories smooth"); // lineas suaves para B
     UIManager->ApplyCommand("/vis/scene/endOfEventAction accumulate 300"); // acumula eventos
 
     UIManager->ApplyCommand("/vis/modeling/trajectories/create/drawByParticleID");
-    //UIManager->ApplyCommand("/vis/modeling/trajectories/create/drawByParticleID-0/set e- blue");
-    
+    UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set e- blue");
+    UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set mu- red");
+    UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set mu+ red");
+	UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set opticalphoton green");
+    UIManager->ApplyCommand("/run/beamOn 100");
     
     // Inicia la sesion
     ui -> SessionStart();
