@@ -63,7 +63,7 @@ int main(G4int argc, char** argv)
     UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set mu- red");
     UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set mu+ red");
 	UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set opticalphoton green");
-    UIManager->ApplyCommand("/run/beamOn 100");
+    UIManager->ApplyCommand("/run/beamOn 200");
     
     // Inicia la sesion
     ui -> SessionStart();

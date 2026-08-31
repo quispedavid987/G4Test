@@ -25,7 +25,7 @@ class MyDetectorConstruction : public G4VUserDetectorConstruction {
 // El constructor y destructor son siempre publicos
 public:
     MyDetectorConstruction();
-    ~MyDetectorConstruction();
+    virtual ~MyDetectorConstruction();
 
     G4VPhysicalVolume *Construct();
 
