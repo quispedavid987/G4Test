@@ -21,10 +21,6 @@
 // Incluimos la accion
 #include "action.hh"
 
-// Incluimos algunas librerias de goddess para prueba
-#include "GODDeSS_Messenger.hh"
-#include "ScintillatorTileConstructor.hh"
-#include "G4ScintillatorTile.hh"
 
 
 
@@ -74,8 +70,8 @@ int main(G4int argc, char** argv)
 
     G4cout << "=========== Simulacion terminada :) ===========" << G4endl;
 
-    delete ui;
     delete visManager;
+    delete ui;
     delete runManager;
 
 
