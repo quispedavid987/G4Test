@@ -1,0 +1,12 @@
+/vis/open OGL                               # abre el motor grafico
+/vis/drawVolume                             # dibuja el volumen
+/vis/scene/add/axes 3 -3 -3 3 cm        # ejes
+/vis/viewer/set/autoRefresh true            # 
+/vis/scene/add/trajectories smooth          #
+/vis/scene/endOfEventAction accumulate 300       #
+
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set e- blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu- red
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ red
+/vis/modeling/trajectories/drawByParticleID-0/set opticalphoton green

@@ -40,38 +40,29 @@ int main(G4int argc, char** argv)
     // Debemos iniciar el RunManager cuando tengamos definida la construccion
     runManager -> Initialize();
 
-    // Creamos la User Interface
-    G4UIExecutive *ui = new G4UIExecutive(argc, argv);
-    G4UImanager *UIManager = G4UImanager::GetUIpointer();
-
     // Vizualisamos la interfaz
     G4VisManager *visManager = new G4VisExecutive();
     visManager -> Initialize();
-    
-    UIManager->ApplyCommand("/vis/open OGL"); // Abre la imagen del detector
-    UIManager->ApplyCommand("/vis/viewer/set/viewpointVector 1 0.7 0.7"); // punto de observacion inicial
-    UIManager->ApplyCommand("/vis/ogl/set/displayListLimit 50000");
-    UIManager->ApplyCommand("/vis/drawVolume"); // Dibuja el volumen del detector
-    UIManager->ApplyCommand("/vis/scene/add/axes 40 -40 -40 10 cm"); // Dibujando los ejes
+    G4UImanager *UIManager = G4UImanager::GetUIpointer();
 
-    UIManager->ApplyCommand("/vis/viewer/set/autorefresh true"); // ver la trayectoria
-    UIManager->ApplyCommand("/vis/scene/add/trajectories smooth"); // lineas suaves para B
-    UIManager->ApplyCommand("/vis/scene/endOfEventAction accumulate 300"); // acumula eventos
-
-    UIManager->ApplyCommand("/vis/modeling/trajectories/create/drawByParticleID");
-    UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set e- blue");
-    UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set mu- red");
-    UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set mu+ red");
-	UIManager->ApplyCommand("/vis/modeling/trajectories/drawByParticleID-0/set opticalphoton green");
-    UIManager->ApplyCommand("/run/beamOn 200");
     
-    // Inicia la sesion
-    ui -> SessionStart();
+    if (argc == 1) {
+        G4UIExecutive *ui = new G4UIExecutive(argc, argv);
+
+        UIManager -> ApplyCommand("/control/execute ../vis.mac");
+        ui -> SessionStart();
+
+        delete ui;
+    }
+    else {
+        G4String command = "/control/execute ";
+        G4String fileName = argv[1];
+        UIManager -> ApplyCommand(command + "../" + fileName);
+    }
 
     G4cout << "=========== Simulacion terminada :) ===========" << G4endl;
 
     delete visManager;
-    delete ui;
     delete runManager;
 
 

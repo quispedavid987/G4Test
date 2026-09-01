@@ -5,6 +5,10 @@
 #include "G4SystemOfUnits.hh"
 #include "G4PhysicalConstants.hh"
 
+// Colores
+#include "G4Colour.hh"
+#include "G4VisAttributes.hh"
+
 // Agregando la clase Nist para materiales standard
 #include "G4NistManager.hh"
 
